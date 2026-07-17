@@ -1,0 +1,222 @@
+{
+  "artifacts": [
+    {
+      "artifactId": "3395858d-58c5-4d32-a233-dc62e04a8438",
+      "name": "validation_result",
+      "parts": [
+        {
+          "data": {
+            "data": [
+              {
+                "timestamp": "2026-07-15T12:00:00Z",
+                "store_id": "1",
+                "price": -10.0,
+                "on_promotion": true,
+                "historical_sales": 150.0,
+                "redundant_feature": "abc",
+                "_validation_meta": {
+                  "valid": false,
+                  "errors": [
+                    {
+                      "field": "store_id",
+                      "error_type": "type",
+                      "message": "'1' is not of type 'integer'"
+                    },
+                    {
+                      "field": "price",
+                      "error_type": "minimum",
+                      "message": "-10.0 is less than the minimum of 0.01"
+                    },
+                    {
+                      "field": "product_id",
+                      "error_type": "required",
+                      "message": "Field 'product_id' is missing but required by the contract."
+                    },
+                    {
+                      "field": "redundant_feature",
+                      "error_type": "additionalProperties",
+                      "message": "Field 'redundant_feature' is not allowed by the contract."
+                    }
+                  ]
+                }
+              },
+              {
+                "timestamp": "2026-07-15T13:00:00Z",
+                "store_id": 1,
+                "product_id": 102,
+                "price": 5.49,
+                "on_promotion": false,
+                "historical_sales": 320.0,
+                "_validation_meta": {
+                  "valid": true,
+                  "errors": []
+                }
+              }
+            ],
+            "global_errors": []
+          },
+          "kind": "data"
+        }
+      ]
+    },
+    {
+      "artifactId": "70c7bd4e-b258-4b39-bb05-b7634200322a",
+      "name": "validation_result",
+      "parts": [
+        {
+          "data": {
+            "data": [
+              {
+                "timestamp": "2026-07-15T12:00:00Z",
+                "store_id": "1",
+                "price": -10.0,
+                "on_promotion": true,
+                "historical_sales": 150.0,
+                "_validation_meta": {
+                  "valid": false,
+                  "errors": [
+                    {
+                      "field": "store_id",
+                      "error_type": "type",
+                      "message": "'1' is not of type 'integer'"
+                    },
+                    {
+                      "field": "price",
+                      "error_type": "minimum",
+                      "message": "-10.0 is less than the minimum of 0.01"
+                    },
+                    {
+                      "field": "product_id",
+                      "error_type": "required",
+                      "message": "Field 'product_id' is missing but required by the contract."
+                    }
+                  ]
+                }
+              },
+              {
+                "timestamp": "2026-07-15T13:00:00Z",
+                "store_id": 1,
+                "product_id": 102,
+                "price": 5.49,
+                "on_promotion": false,
+                "historical_sales": 320.0,
+                "_validation_meta": {
+                  "valid": true,
+                  "errors": []
+                }
+              }
+            ],
+            "global_errors": []
+          },
+          "kind": "data"
+        }
+      ]
+    }
+  ],
+  "contextId": "9a73455f-a0a7-4a6b-b421-e0425a26bd03",
+  "history": [
+    {
+      "contextId": "9a73455f-a0a7-4a6b-b421-e0425a26bd03",
+      "kind": "message",
+      "messageId": "2638a958-8dd0-418b-9b74-9d29c78de976",
+      "parts": [
+        {
+          "kind": "text",
+          "text": "Hello Forecasting Service! I am submitting a new batch of sales records for forecasting. Please validate the data and return the forecasts."
+        },
+        {
+          "data": {
+            "data": [
+              {
+                "timestamp": "2026-07-15T12:00:00Z",
+                "store_id": "1",
+                "price": -10.0,
+                "on_promotion": true,
+                "historical_sales": 150.0,
+                "redundant_feature": "abc"
+              },
+              {
+                "timestamp": "2026-07-15T13:00:00Z",
+                "store_id": 1,
+                "product_id": 102,
+                "price": 5.49,
+                "on_promotion": false,
+                "historical_sales": 320.0
+              }
+            ]
+          },
+          "kind": "data"
+        }
+      ],
+      "role": "user",
+      "taskId": "1a6f67d2-d777-4302-97ce-4f8944f88cc1"
+    },
+    {
+      "contextId": "9a73455f-a0a7-4a6b-b421-e0425a26bd03",
+      "kind": "message",
+      "messageId": "39664c3a-9efc-481b-98be-40167502cbaf",
+      "parts": [
+        {
+          "kind": "text",
+          "text": "Hello. I reviewed your submission, but it violates our data contract. I found 4 error(s) (including: 'store_id' (type), 'price' (minimum), 'product_id' (required), etc.). I have annotated the records with validation metadata. Please correct them and resubmit."
+        }
+      ],
+      "role": "agent",
+      "taskId": "1a6f67d2-d777-4302-97ce-4f8944f88cc1"
+    },
+    {
+      "contextId": "9a73455f-a0a7-4a6b-b421-e0425a26bd03",
+      "kind": "message",
+      "messageId": "ff9bac8a-8f23-44c5-97d8-2be637f1d259",
+      "parts": [
+        {
+          "kind": "text",
+          "text": "Thank you for the validation feedback. I noted 4 issue(s) in the previous run. I have applied our data repair routines to fix them. Here is the corrected dataset. Let me know if everything is compliant now."
+        },
+        {
+          "data": {
+            "data": [
+              {
+                "timestamp": "2026-07-15T12:00:00Z",
+                "store_id": "1",
+                "price": -10.0,
+                "on_promotion": true,
+                "historical_sales": 150.0
+              },
+              {
+                "timestamp": "2026-07-15T13:00:00Z",
+                "store_id": 1,
+                "product_id": 102,
+                "price": 5.49,
+                "on_promotion": false,
+                "historical_sales": 320.0
+              }
+            ]
+          },
+          "kind": "data"
+        }
+      ],
+      "role": "user",
+      "taskId": "1a6f67d2-d777-4302-97ce-4f8944f88cc1"
+    }
+  ],
+  "id": "1a6f67d2-d777-4302-97ce-4f8944f88cc1",
+  "kind": "task",
+  "status": {
+    "message": {
+      "contextId": "9a73455f-a0a7-4a6b-b421-e0425a26bd03",
+      "kind": "message",
+      "messageId": "e0361ec9-e73f-4101-b480-65da12e73348",
+      "parts": [
+        {
+          "kind": "text",
+          "text": "Hello. I reviewed your submission, but it violates our data contract. I found 3 error(s) (including: 'store_id' (type), 'price' (minimum), 'product_id' (required)). I have annotated the records with validation metadata. Please correct them and resubmit."
+        }
+      ],
+      "role": "agent",
+      "taskId": "1a6f67d2-d777-4302-97ce-4f8944f88cc1"
+    },
+    "state": "input-required",
+    "timestamp": "2026-07-17T13:36:46.803991+00:00"
+  }
+}

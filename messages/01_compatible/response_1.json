@@ -1,0 +1,94 @@
+{
+  "artifacts": [
+    {
+      "artifactId": "26cd1882-7fd9-4af5-abc9-92602fee2f96",
+      "name": "forecast_result",
+      "parts": [
+        {
+          "data": {
+            "data": [
+              {
+                "timestamp": "2026-07-15T12:00:00Z",
+                "store_id": 1,
+                "product_id": 101,
+                "price": 19.99,
+                "on_promotion": true,
+                "historical_sales": 150.0,
+                "forecast": 1.0
+              },
+              {
+                "timestamp": "2026-07-15T13:00:00Z",
+                "store_id": 1,
+                "product_id": 102,
+                "price": 5.49,
+                "on_promotion": false,
+                "historical_sales": 320.0,
+                "forecast": 1.0
+              }
+            ],
+            "global_errors": []
+          },
+          "kind": "data"
+        }
+      ]
+    }
+  ],
+  "contextId": "54d01447-aa4d-4652-988b-fef37392336e",
+  "history": [
+    {
+      "contextId": "54d01447-aa4d-4652-988b-fef37392336e",
+      "kind": "message",
+      "messageId": "2d1a5194-e7b2-473c-9c40-8475b6ae7d22",
+      "parts": [
+        {
+          "kind": "text",
+          "text": "Hello Forecasting Service! I am submitting a new batch of sales records for forecasting. Please validate the data and return the forecasts."
+        },
+        {
+          "data": {
+            "data": [
+              {
+                "timestamp": "2026-07-15T12:00:00Z",
+                "store_id": 1,
+                "product_id": 101,
+                "price": 19.99,
+                "on_promotion": true,
+                "historical_sales": 150.0
+              },
+              {
+                "timestamp": "2026-07-15T13:00:00Z",
+                "store_id": 1,
+                "product_id": 102,
+                "price": 5.49,
+                "on_promotion": false,
+                "historical_sales": 320.0
+              }
+            ]
+          },
+          "kind": "data"
+        }
+      ],
+      "role": "user",
+      "taskId": "f6b9db0d-3411-4bc0-9729-f760b3b4c7f7"
+    }
+  ],
+  "id": "f6b9db0d-3411-4bc0-9729-f760b3b4c7f7",
+  "kind": "task",
+  "status": {
+    "message": {
+      "contextId": "54d01447-aa4d-4652-988b-fef37392336e",
+      "kind": "message",
+      "messageId": "cf63dfc6-5ae2-4b3b-8afa-5e63cdeb3b16",
+      "parts": [
+        {
+          "kind": "text",
+          "text": "Hi! I have successfully validated your dataset against the contract schema. All records are compliant. Here are your forecasting predictions (all set to 1.0)."
+        }
+      ],
+      "role": "agent",
+      "taskId": "f6b9db0d-3411-4bc0-9729-f760b3b4c7f7"
+    },
+    "state": "completed",
+    "timestamp": "2026-07-17T13:36:44.842680+00:00"
+  }
+}

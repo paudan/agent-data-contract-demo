@@ -1,0 +1,4 @@
+[
+        {"timestamp": "2026-07-15T12:00:00Z", "store_id": 1, "product_id": 101, "price": 19.99, "on_promotion": true, "historical_sales": 150.0, "redundant_feature": "abc"},
+        {"timestamp": "2026-07-15T13:00:00Z", "store_id": 1, "product_id": 102, "price": 5.49, "on_promotion": false, "historical_sales": 320.0, "another_redundant": 123}
+    ]

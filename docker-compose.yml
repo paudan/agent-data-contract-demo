@@ -1,0 +1,73 @@
+services:
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 2s
+      timeout: 2s
+      retries: 15
+
+  jaeger:
+    image: cr.jaegertracing.io/jaegertracing/jaeger:2.19.0
+    ports:
+      - "16686:16686"
+      - "4317:4317"
+      - "4318:4318"
+
+  supplier:
+    build:
+      context: .
+      dockerfile: Dockerfile.supplier
+    command: ["--host", "0.0.0.0", "--port", "8000", "--public-url", "http://supplier:8000/"]
+    depends_on:
+      redis:
+        condition: service_healthy
+      jaeger:
+        condition: service_started
+    environment:
+      REDIS_URL: redis://redis:6379/0
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger:4317
+      TRACING_BACKEND: ${TRACING_BACKEND:-langfuse}
+      LANGFUSE_PUBLIC_KEY: ${LANGFUSE_PUBLIC_KEY:-}
+      LANGFUSE_SECRET_KEY: ${LANGFUSE_SECRET_KEY:-}
+      LANGFUSE_BASE_URL: ${LANGFUSE_BASE_URL:-https://cloud.langfuse.com}
+    ports:
+      - "8128:8000"
+    volumes:
+      - ./contracts:/app/contracts:ro
+
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    command: ["--host", "0.0.0.0", "--port", "8000"]
+    depends_on:
+      - supplier
+    environment:
+      SUPPLIER_URL: http://supplier:8000/
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger:4317
+      TRACING_BACKEND: ${TRACING_BACKEND:-langfuse}
+      LANGFUSE_PUBLIC_KEY: ${LANGFUSE_PUBLIC_KEY:-}
+      LANGFUSE_SECRET_KEY: ${LANGFUSE_SECRET_KEY:-}
+      LANGFUSE_BASE_URL: ${LANGFUSE_BASE_URL:-https://cloud.langfuse.com}
+    ports:
+      - "8127:8000"
+    volumes:
+      - ./messages:/app/messages
+
+  # runner:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.runner
+  #   depends_on:
+  #     - client
+  #   environment:
+  #     SUPPLIER_URL: http://supplier:8000/
+  #     CLIENT_SERVICE_URL: http://client:8000/
+  #   volumes:
+  #     - ./data:/app/data
+  #     - ./messages:/app/messages
+  #   profiles:
+  #     - runner

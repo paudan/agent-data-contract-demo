@@ -1,0 +1,199 @@
+{
+  "artifacts": [
+    {
+      "artifactId": "ceae60e9-257a-4fdb-a6be-41235baa2608",
+      "name": "validation_result",
+      "parts": [
+        {
+          "data": {
+            "data": [
+              {
+                "timestamp": "2026-07-15T12:00:00Z",
+                "store_id": 1,
+                "product_id": 101,
+                "price": -5.0,
+                "on_promotion": true,
+                "historical_sales": 150.0,
+                "_validation_meta": {
+                  "valid": false,
+                  "errors": [
+                    {
+                      "field": "price",
+                      "error_type": "minimum",
+                      "message": "-5.0 is less than the minimum of 0.01"
+                    }
+                  ]
+                }
+              },
+              {
+                "timestamp": "2026-07-15T13:00:00Z",
+                "store_id": 1,
+                "product_id": 102,
+                "price": 5.49,
+                "on_promotion": false,
+                "historical_sales": 320.0,
+                "_validation_meta": {
+                  "valid": true,
+                  "errors": []
+                }
+              }
+            ],
+            "global_errors": []
+          },
+          "kind": "data"
+        }
+      ]
+    },
+    {
+      "artifactId": "6edb788f-3652-4e50-be00-3f5b6e4f1fd8",
+      "name": "validation_result",
+      "parts": [
+        {
+          "data": {
+            "data": [
+              {
+                "timestamp": "2026-07-15T12:00:00Z",
+                "store_id": 1,
+                "product_id": 101,
+                "price": -5.0,
+                "on_promotion": true,
+                "historical_sales": 150.0,
+                "_validation_meta": {
+                  "valid": false,
+                  "errors": [
+                    {
+                      "field": "price",
+                      "error_type": "minimum",
+                      "message": "-5.0 is less than the minimum of 0.01"
+                    }
+                  ]
+                }
+              },
+              {
+                "timestamp": "2026-07-15T13:00:00Z",
+                "store_id": 1,
+                "product_id": 102,
+                "price": 5.49,
+                "on_promotion": false,
+                "historical_sales": 320.0,
+                "_validation_meta": {
+                  "valid": true,
+                  "errors": []
+                }
+              }
+            ],
+            "global_errors": []
+          },
+          "kind": "data"
+        }
+      ]
+    }
+  ],
+  "contextId": "94590065-7415-4e61-9215-764b942caa97",
+  "history": [
+    {
+      "contextId": "94590065-7415-4e61-9215-764b942caa97",
+      "kind": "message",
+      "messageId": "43882d6d-5760-4134-9142-116e2748ac08",
+      "parts": [
+        {
+          "kind": "text",
+          "text": "Hello Forecasting Service! I am submitting a new batch of sales records for forecasting. Please validate the data and return the forecasts."
+        },
+        {
+          "data": {
+            "data": [
+              {
+                "timestamp": "2026-07-15T12:00:00Z",
+                "store_id": 1,
+                "product_id": 101,
+                "price": -5.0,
+                "on_promotion": true,
+                "historical_sales": 150.0
+              },
+              {
+                "timestamp": "2026-07-15T13:00:00Z",
+                "store_id": 1,
+                "product_id": 102,
+                "price": 5.49,
+                "on_promotion": false,
+                "historical_sales": 320.0
+              }
+            ]
+          },
+          "kind": "data"
+        }
+      ],
+      "role": "user",
+      "taskId": "495c3244-e273-4aef-8d7f-b9356726925b"
+    },
+    {
+      "contextId": "94590065-7415-4e61-9215-764b942caa97",
+      "kind": "message",
+      "messageId": "084815af-f8e8-43ba-8fa3-8cd9841887b7",
+      "parts": [
+        {
+          "kind": "text",
+          "text": "Hello. I reviewed your submission, but it violates our data contract. I found 1 error(s) (including: 'price' (minimum)). I have annotated the records with validation metadata. Please correct them and resubmit."
+        }
+      ],
+      "role": "agent",
+      "taskId": "495c3244-e273-4aef-8d7f-b9356726925b"
+    },
+    {
+      "contextId": "94590065-7415-4e61-9215-764b942caa97",
+      "kind": "message",
+      "messageId": "cc4cedf9-b82b-41bc-b8bb-e51e2ffbeaa6",
+      "parts": [
+        {
+          "kind": "text",
+          "text": "Thank you for the validation feedback. I noted 1 issue(s) in the previous run. I have applied our data repair routines to fix them. Here is the corrected dataset. Let me know if everything is compliant now."
+        },
+        {
+          "data": {
+            "data": [
+              {
+                "timestamp": "2026-07-15T12:00:00Z",
+                "store_id": 1,
+                "product_id": 101,
+                "price": -5.0,
+                "on_promotion": true,
+                "historical_sales": 150.0
+              },
+              {
+                "timestamp": "2026-07-15T13:00:00Z",
+                "store_id": 1,
+                "product_id": 102,
+                "price": 5.49,
+                "on_promotion": false,
+                "historical_sales": 320.0
+              }
+            ]
+          },
+          "kind": "data"
+        }
+      ],
+      "role": "user",
+      "taskId": "495c3244-e273-4aef-8d7f-b9356726925b"
+    }
+  ],
+  "id": "495c3244-e273-4aef-8d7f-b9356726925b",
+  "kind": "task",
+  "status": {
+    "message": {
+      "contextId": "94590065-7415-4e61-9215-764b942caa97",
+      "kind": "message",
+      "messageId": "bc40ce6e-007d-472b-b27a-dceb8c952da8",
+      "parts": [
+        {
+          "kind": "text",
+          "text": "Hello. I reviewed your submission, but it violates our data contract. I found 1 error(s) (including: 'price' (minimum)). I have annotated the records with validation metadata. Please correct them and resubmit."
+        }
+      ],
+      "role": "agent",
+      "taskId": "495c3244-e273-4aef-8d7f-b9356726925b"
+    },
+    "state": "input-required",
+    "timestamp": "2026-07-17T13:36:48.006116+00:00"
+  }
+}

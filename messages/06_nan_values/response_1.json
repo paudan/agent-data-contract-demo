@@ -1,0 +1,112 @@
+{
+  "artifacts": [
+    {
+      "artifactId": "158d0903-6465-404f-ad79-4900b424a4ef",
+      "name": "validation_result",
+      "parts": [
+        {
+          "data": {
+            "data": [
+              {
+                "timestamp": "2026-07-15T12:00:00Z",
+                "store_id": 1,
+                "product_id": 101,
+                "price": "NaN",
+                "on_promotion": true,
+                "historical_sales": 150.0,
+                "_validation_meta": {
+                  "valid": false,
+                  "errors": [
+                    {
+                      "field": "price",
+                      "error_type": "type",
+                      "message": "'NaN' is not of type 'number'"
+                    }
+                  ]
+                }
+              },
+              {
+                "timestamp": "2026-07-15T13:00:00Z",
+                "store_id": 1,
+                "product_id": 102,
+                "price": null,
+                "on_promotion": false,
+                "historical_sales": 320.0,
+                "_validation_meta": {
+                  "valid": false,
+                  "errors": [
+                    {
+                      "field": "price",
+                      "error_type": "type",
+                      "message": "None is not of type 'number'"
+                    }
+                  ]
+                }
+              }
+            ],
+            "global_errors": []
+          },
+          "kind": "data"
+        }
+      ]
+    }
+  ],
+  "contextId": "3e0e679b-be7a-420b-b370-9ae64ca649c8",
+  "history": [
+    {
+      "contextId": "3e0e679b-be7a-420b-b370-9ae64ca649c8",
+      "kind": "message",
+      "messageId": "1a88a894-36a4-473e-ae62-f31c12b62e4d",
+      "parts": [
+        {
+          "kind": "text",
+          "text": "Hello Forecasting Service! I am submitting a new batch of sales records for forecasting. Please validate the data and return the forecasts."
+        },
+        {
+          "data": {
+            "data": [
+              {
+                "timestamp": "2026-07-15T12:00:00Z",
+                "store_id": 1,
+                "product_id": 101,
+                "price": "NaN",
+                "on_promotion": true,
+                "historical_sales": 150.0
+              },
+              {
+                "timestamp": "2026-07-15T13:00:00Z",
+                "store_id": 1,
+                "product_id": 102,
+                "price": null,
+                "on_promotion": false,
+                "historical_sales": 320.0
+              }
+            ]
+          },
+          "kind": "data"
+        }
+      ],
+      "role": "user",
+      "taskId": "6231edd3-a3b4-46b8-8fb2-198416c1f70b"
+    }
+  ],
+  "id": "6231edd3-a3b4-46b8-8fb2-198416c1f70b",
+  "kind": "task",
+  "status": {
+    "message": {
+      "contextId": "3e0e679b-be7a-420b-b370-9ae64ca649c8",
+      "kind": "message",
+      "messageId": "acfe18b6-568f-4ae2-992a-b98fa8643b07",
+      "parts": [
+        {
+          "kind": "text",
+          "text": "Hello. I reviewed your submission, but it violates our data contract. I found 2 error(s) (including: 'price' (type)). I have annotated the records with validation metadata. Please correct them and resubmit."
+        }
+      ],
+      "role": "agent",
+      "taskId": "6231edd3-a3b4-46b8-8fb2-198416c1f70b"
+    },
+    "state": "input-required",
+    "timestamp": "2026-07-17T13:36:46.165191+00:00"
+  }
+}

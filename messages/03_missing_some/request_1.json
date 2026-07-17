@@ -1,0 +1,33 @@
+{
+  "kind": "message",
+  "messageId": "96aa2d49-5028-4e8e-8681-31c60368710e",
+  "parts": [
+    {
+      "kind": "text",
+      "text": "Hello Forecasting Service! I am submitting a new batch of sales records for forecasting. Please validate the data and return the forecasts."
+    },
+    {
+      "data": {
+        "data": [
+          {
+            "timestamp": "2026-07-15T12:00:00Z",
+            "store_id": 1,
+            "product_id": 101,
+            "price": 19.99,
+            "on_promotion": true,
+            "historical_sales": 150.0
+          },
+          {
+            "timestamp": "2026-07-15T13:00:00Z",
+            "store_id": 1,
+            "price": 5.49,
+            "on_promotion": false,
+            "historical_sales": 320.0
+          }
+        ]
+      },
+      "kind": "data"
+    }
+  ],
+  "role": "user"
+}
